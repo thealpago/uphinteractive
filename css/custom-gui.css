@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+.glass-menu {
+    position: fixed;
+    left: 40px;
+    right: auto;
+    top: 50%;
+    transform: translateY(-50%) translateZ(0);
+    width: 242px;
+    /* Increased 10% from 220px */
+    padding: 17px;
+    /* Increased 10% from 15px */
+    background: transparent;
+    z-index: 10000;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* More compact */
+    pointer-events: none;
+    opacity: 0;
+    /* Soft fade-in animation */
+    transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.glass-menu.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.glass-menu h3 {
+    margin: 0 0 5px 0;
+    font-size: 0.77rem;
+    /* Increased 10% from 0.7rem */
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    border: none;
+    padding: 0;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.gui-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.gui-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gui-group label {
+    font-size: 0.77rem;
+    /* Increased 10% from 0.7rem */
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.gui-value {
+    font-size: 0.82rem;
+    /* Increased 10% from 0.75rem */
+    font-weight: 400;
+    color: #EE9A00;
+    opacity: 0.8;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.gui-group input[type="range"] {
+    width: 100%;
+    height: 1px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 5px 0;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
+}
+
+.gui-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 11px;
+    height: 11px;
+    background: #EE9A00;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.gui-group input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.5);
+}
+
+.gui-footer-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 5px 0;
+}
+
+.upload-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    /* Added spacing */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #EE9A00;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    /* Increased approx 10% */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.upload-btn:hover {
+    background: rgba(238, 154, 0, 0.1);
+    border-color: rgba(238, 154, 0, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.upload-btn svg {
+    opacity: 0.8;
+}
+
+.upload-hint {
+    margin: 8px 0 0 0;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.25);
+    text-align: center;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+.gui-instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gui-instructions p {
+    margin: 0;
+    font-size: 0.68rem;
+    /* Increased from 0.62rem */
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.gui-keys {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.gui-key-column {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.gui-key {
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.gui-info {
+    position: fixed;
+    left: calc(50px + 1%);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 9999;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Hide help text when menu is open */
+.glass-menu.visible+.gui-info {
+    opacity: 0;
+}
+
+.glass-menu.visible+.gui-info {
+    opacity: 0;
+}
+
+/* Nav dots - Simplified */
+.photo-nav {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10000;
+}
+
+.nav-dot-wrapper {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.nav-dot {
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8));
+}
+
+.nav-dot-wrapper.active .nav-dot {
+    background: #EE9A00;
+    transform: scale(2.0);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 1));
+}
+
+.nav-dot-wrapper:hover .nav-dot {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.nav-dot-wrapper .active-ring {
+    display: none;
+    /* Removed for simplicity */
+}
+
+/* General clean up */
+::-webkit-scrollbar {
+    display: none;
+}
