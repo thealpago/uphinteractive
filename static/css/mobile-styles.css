@@ -1,0 +1,164 @@
+/* Mobile Toggle Button - Minimal */
+.gui-toggle {
+    display: none;
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 10001;
+    background: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.3s ease;
+}
+
+.gui-toggle:hover {
+    color: white;
+}
+
+.container {
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@media screen and (max-width: 900px) {
+
+    html,
+    body {
+        overflow: hidden;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .gui-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: 80px;
+        right: 20px;
+        top: auto;
+        left: auto;
+    }
+
+    .glass-menu {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        transform: translate(-50%, -50%) translateZ(0);
+        width: 93%;
+        /* Increased from 85% */
+        max-width: 440px;
+        /* Increased from 400px */
+        opacity: 0;
+        pointer-events: none;
+        background: transparent;
+        transition: opacity 0.4s ease;
+        will-change: opacity;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        /* Tighter gaps */
+    }
+
+    .glass-menu.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) translateZ(0);
+    }
+
+    .gui-instructions,
+    .gui-footer-divider {
+        display: none;
+    }
+
+    .photo-nav {
+        bottom: 40px;
+        gap: 8px;
+    }
+
+    .photo-title {
+        font-size: 0.7rem;
+    }
+
+    .gui-info {
+        display: none;
+    }
+
+    /* Enhanced visibility for mobile */
+    .glass-menu h3,
+    .gui-group label,
+    .gui-value,
+    .photo-title {
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 1), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+    }
+
+    .gui-toggle,
+    .nav-arrow {
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 1)) !important;
+    }
+
+    .gui-group input[type="range"] {
+        filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.9)) !important;
+    }
+
+    .gui-group input[type="range"]::-webkit-slider-thumb {
+        box-shadow: 0 0 8px rgba(0, 0, 0, 1) !important;
+    }
+
+    .nav-dot {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 1)) !important;
+    }
+
+    .nav-dot-wrapper.active .nav-dot {
+        transform: scale(2.0) !important;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 1)) !important;
+    }
+}
+
+@media screen and (max-width: 900px) and (orientation: landscape) {
+
+    .glass-menu,
+    .glass-menu.visible {
+        top: auto;
+        bottom: 130px;
+        left: 50%;
+        transform: translateX(-50%) scale(0.75) translateZ(0);
+        transform-origin: bottom center;
+        width: 90%;
+        max-width: 600px;
+        gap: 8px;
+        /* Reduced gap */
+        padding: 5px;
+        /* Reduced padding if applicable */
+    }
+
+    .glass-menu h3 {
+        margin-bottom: 2px;
+        font-size: 0.75rem;
+        /* Ensure title isn't too large */
+    }
+
+    .gui-group {
+        gap: 2px;
+        /* Tighter grouping */
+    }
+
+    .gui-group label {
+        font-size: 0.65rem;
+        /* Slightly smaller labels */
+    }
+
+    .gui-group input[type="range"] {
+        margin: 3px 0;
+        /* Minimal margin */
+        height: 1px;
+        /* Ensure thin track */
+    }
+}
