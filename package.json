@@ -10,7 +10,9 @@
   "scripts": {
     "build": "webpack --config config/prod.js",
     "start": "webpack serve --config config/dev.js",
-    "dev": "npm start"
+    "dev": "npm start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "browser-detect": "^0.2.28",
