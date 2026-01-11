@@ -157,6 +157,7 @@
     font-weight: 300;
     font-style: italic;
     letter-spacing: 0.5px;
+    text-decoration: underline;
 }
 
 .gui-instructions {
